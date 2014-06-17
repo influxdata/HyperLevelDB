@@ -4,8 +4,8 @@
 //
 // A database can be configured with a custom FilterPolicy object.
 // This object is responsible for creating a small filter from a set
-// of keys.  These filters are stored in leveldb and are consulted
-// automatically by leveldb to decide whether or not to read some
+// of keys.  These filters are stored in hyperleveldb and are consulted
+// automatically by hyperleveldb to decide whether or not to read some
 // information from disk. In many cases, a filter can cut down the
 // number of disk seeks form a handful to a single disk seek per
 // DB::Get() call.
@@ -18,7 +18,7 @@
 
 #include <string>
 
-namespace leveldb {
+namespace hyperleveldb {
 
 class Slice;
 

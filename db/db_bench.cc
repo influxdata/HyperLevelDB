@@ -102,7 +102,7 @@ static bool FLAGS_use_existing_db = false;
 // Use the db with the following name.
 static const char* FLAGS_db = NULL;
 
-namespace leveldb {
+namespace hyperleveldb {
 
 namespace {
 
@@ -500,9 +500,9 @@ class Benchmark {
       } else if (name == Slice("heapprofile")) {
         HeapProfile();
       } else if (name == Slice("stats")) {
-        PrintStats("leveldb.stats");
+        PrintStats("hyperleveldb.stats");
       } else if (name == Slice("sstables")) {
-        PrintStats("leveldb.sstables");
+        PrintStats("hyperleveldb.sstables");
       } else {
         if (name != Slice()) {  // No error message for empty name
           fprintf(stderr, "unknown benchmark '%s'\n", name.ToString().c_str());
@@ -921,18 +921,18 @@ class Benchmark {
   }
 };
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 int main(int argc, char** argv) {
-  FLAGS_write_buffer_size = leveldb::Options().write_buffer_size;
-  FLAGS_open_files = leveldb::Options().max_open_files;
+  FLAGS_write_buffer_size = hyperleveldb::Options().write_buffer_size;
+  FLAGS_open_files = hyperleveldb::Options().max_open_files;
   std::string default_db_path;
 
   for (int i = 1; i < argc; i++) {
     double d;
     int n;
     char junk;
-    if (leveldb::Slice(argv[i]).starts_with("--benchmarks=")) {
+    if (hyperleveldb::Slice(argv[i]).starts_with("--benchmarks=")) {
       FLAGS_benchmarks = argv[i] + strlen("--benchmarks=");
     } else if (sscanf(argv[i], "--compression_ratio=%lf%c", &d, &junk) == 1) {
       FLAGS_compression_ratio = d;
@@ -968,12 +968,12 @@ int main(int argc, char** argv) {
 
   // Choose a location for the test database if none given with --db=<path>
   if (FLAGS_db == NULL) {
-      leveldb::Env::Default()->GetTestDirectory(&default_db_path);
+      hyperleveldb::Env::Default()->GetTestDirectory(&default_db_path);
       default_db_path += "/dbbench";
       FLAGS_db = default_db_path.c_str();
   }
 
-  leveldb::Benchmark benchmark;
+  hyperleveldb::Benchmark benchmark;
   benchmark.Run();
   return 0;
 }

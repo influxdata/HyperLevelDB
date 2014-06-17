@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 //
-// An Env is an interface used by the leveldb implementation to access
+// An Env is an interface used by the hyperleveldb implementation to access
 // operating system functionality like the filesystem etc.  Callers
 // may wish to provide a custom Env object when opening a database to
 // get fine gain control; e.g., to rate limit file system operations.
@@ -19,7 +19,7 @@
 #include <stdint.h>
 #include "hyperleveldb/status.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 class FileLock;
 class Logger;
@@ -37,7 +37,7 @@ class Env {
   // system.  Sophisticated users may wish to provide their own Env
   // implementation instead of relying on this default environment.
   //
-  // The result of Default() belongs to leveldb and must never be deleted.
+  // The result of Default() belongs to hyperleveldb and must never be deleted.
   static Env* Default();
 
   // Create a brand new sequentially-readable file with the specified name.
@@ -347,6 +347,6 @@ class EnvWrapper : public Env {
   Env* target_;
 };
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 #endif  // STORAGE_LEVELDB_INCLUDE_ENV_H_

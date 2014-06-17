@@ -11,7 +11,7 @@
 #include "hyperleveldb/status.h"
 #include "hyperleveldb/table_builder.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 class Block;
 class RandomAccessFile;
@@ -76,7 +76,7 @@ class Footer {
 };
 
 // kTableMagicNumber was picked by running
-//    echo http://code.google.com/p/leveldb/ | sha1sum
+//    echo http://code.google.com/p/hyperleveldb/ | sha1sum
 // and taking the leading 64 bits.
 static const uint64_t kTableMagicNumber = 0xdb4775248b80fb57ull;
 
@@ -103,6 +103,6 @@ inline BlockHandle::BlockHandle()
       size_(~static_cast<uint64_t>(0)) {
 }
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 #endif  // STORAGE_LEVELDB_TABLE_FORMAT_H_

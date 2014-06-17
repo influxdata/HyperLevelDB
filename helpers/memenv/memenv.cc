@@ -13,7 +13,7 @@
 #include <string>
 #include <vector>
 
-namespace leveldb {
+namespace hyperleveldb {
 
 namespace {
 
@@ -380,4 +380,4 @@ Env* NewMemEnv(Env* base_env) {
   return new InMemoryEnv(base_env);
 }
 
-}  // namespace leveldb
+}  // namespace hyperleveldb

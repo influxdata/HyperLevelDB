@@ -13,7 +13,7 @@
 #include "hyperleveldb/status.h"
 #include "port/port.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 class Env;
 
@@ -67,7 +67,7 @@ extern std::string InfoLogFileName(const std::string& dbname);
 // Return the name of the old info log file for "dbname".
 extern std::string OldInfoLogFileName(const std::string& dbname);
 
-// If filename is a leveldb file, store the type of the file in *type.
+// If filename is a hyperleveldb file, store the type of the file in *type.
 // The number encoded in the filename is stored in *number.  If the
 // filename was successfully parsed, returns true.  Else return false.
 extern bool ParseFileName(const std::string& filename,
@@ -80,6 +80,6 @@ extern Status SetCurrentFile(Env* env, const std::string& dbname,
                              uint64_t descriptor_number);
 
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 #endif  // STORAGE_LEVELDB_DB_FILENAME_H_

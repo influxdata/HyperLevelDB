@@ -8,7 +8,7 @@
 #include "util/testharness.h"
 #include "util/testutil.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 class AutoCompactTest {
  public:
@@ -116,8 +116,8 @@ TEST(AutoCompactTest, ReadHalf) {
 }
 #endif
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return hyperleveldb::test::RunAllTests();
 }

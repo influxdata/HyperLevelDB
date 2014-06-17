@@ -17,7 +17,7 @@
 #include "hyperleveldb/options.h"
 #include "hyperleveldb/status.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 class BlockBuilder;
 class BlockHandle;
@@ -87,6 +87,6 @@ class TableBuilder {
   void operator=(const TableBuilder&);
 };
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 #endif  // STORAGE_LEVELDB_INCLUDE_TABLE_BUILDER_H_

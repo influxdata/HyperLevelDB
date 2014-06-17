@@ -7,7 +7,7 @@
 
 #include "hyperleveldb/iterator.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 struct ReadOptions;
 
@@ -29,6 +29,6 @@ extern Iterator* NewTwoLevelIterator(
     void* arg,
     const ReadOptions& options);
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 #endif  // STORAGE_LEVELDB_TABLE_TWO_LEVEL_ITERATOR_H_

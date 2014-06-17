@@ -38,7 +38,7 @@
 #include "hyperleveldb/db.h"
 #include "hyperleveldb/env.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 namespace {
 
@@ -80,7 +80,7 @@ class Repairer {
         bytes += tables_[i].meta.file_size;
       }
       Log(options_.info_log,
-          "**** Repaired leveldb %s; "
+          "**** Repaired hyperleveldb %s; "
           "recovered %d files; %llu bytes. "
           "Some data may have been lost. "
           "****",
@@ -458,4 +458,4 @@ Status RepairDB(const std::string& dbname, const Options& options) {
   return repairer.Run();
 }
 
-}  // namespace leveldb
+}  // namespace hyperleveldb

@@ -9,7 +9,7 @@
 #include "hyperleveldb/table.h"
 #include "util/coding.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 struct TableAndFile {
   RandomAccessFile* file;
@@ -124,4 +124,4 @@ void TableCache::Evict(uint64_t file_number) {
   cache_->Erase(Slice(buf, sizeof(buf)));
 }
 
-}  // namespace leveldb
+}  // namespace hyperleveldb

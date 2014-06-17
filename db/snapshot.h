@@ -7,7 +7,7 @@
 
 #include "hyperleveldb/db.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 class SnapshotList;
 
@@ -61,6 +61,6 @@ class SnapshotList {
   SnapshotImpl list_;
 };
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 #endif  // STORAGE_LEVELDB_DB_SNAPSHOT_H_

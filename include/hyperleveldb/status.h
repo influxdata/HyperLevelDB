@@ -16,7 +16,7 @@
 #include <string>
 #include "hyperleveldb/slice.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 class Status {
  public:
@@ -102,6 +102,6 @@ inline Status& Status::operator=(const Status& s) {
   return *this;
 }
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 #endif  // STORAGE_LEVELDB_INCLUDE_STATUS_H_

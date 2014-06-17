@@ -7,7 +7,7 @@
 #include "hyperleveldb/slice.h"
 #include "util/hash.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 namespace {
 static uint32_t BloomHash(const Slice& key) {
@@ -29,7 +29,7 @@ class BloomFilterPolicy : public FilterPolicy {
   }
 
   virtual const char* Name() const {
-    return "leveldb.BuiltinBloomFilter";
+    return "hyperleveldb.BuiltinBloomFilter";
   }
 
   virtual void CreateFilter(const Slice* keys, int n, std::string* dst) const {
@@ -92,4 +92,4 @@ const FilterPolicy* NewBloomFilterPolicy(int bits_per_key) {
   return new BloomFilterPolicy(bits_per_key);
 }
 
-}  // namespace leveldb
+}  // namespace hyperleveldb

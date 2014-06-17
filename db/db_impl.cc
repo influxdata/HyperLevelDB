@@ -36,7 +36,7 @@
 #include "util/mutexlock.h"
 
 #include <iostream>
-namespace leveldb {
+namespace hyperleveldb {
 
 const int kStraightReads = 50;
 
@@ -157,7 +157,7 @@ DBImpl::DBImpl(const Options& raw_options, const std::string& dbname)
   versions_ = new VersionSet(dbname_, &options_, table_cache_,
                              &internal_comparator_);
 
-  for (int i = 0; i < leveldb::config::kNumLevels; ++i) {
+  for (int i = 0; i < hyperleveldb::config::kNumLevels; ++i) {
     levels_locked_[i] = false;
   }
   mutex_.Unlock();
@@ -341,7 +341,7 @@ Status DBImpl::Recover(VersionEdit* edit) {
     //
     // Note that PrevLogNumber() is no longer used, but we pay
     // attention to it in case we are recovering a database
-    // produced by an older version of leveldb.
+    // produced by an older version of hyperleveldb.
     const uint64_t min_log = versions_->LogNumber();
     const uint64_t prev_log = versions_->PrevLogNumber();
     std::vector<std::string> filenames;
@@ -1693,7 +1693,7 @@ bool DBImpl::GetProperty(const Slice& property, std::string* value) {
 
   MutexLock l(&mutex_);
   Slice in = property;
-  Slice prefix("leveldb.");
+  Slice prefix("hyperleveldb.");
   if (!in.starts_with(prefix)) return false;
   in.remove_prefix(prefix.size());
 
@@ -1988,4 +1988,4 @@ Status DestroyDB(const std::string& dbname, const Options& options) {
   return result;
 }
 
-}  // namespace leveldb
+}  // namespace hyperleveldb

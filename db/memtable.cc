@@ -10,7 +10,7 @@
 #include "util/coding.h"
 #include "util/mutexlock.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 static Slice GetLengthPrefixedSlice(const char* data) {
   uint32_t len;
@@ -177,4 +177,4 @@ bool MemTable::Get(const LookupKey& key, std::string* value, Status* s) {
   return false;
 }
 
-}  // namespace leveldb
+}  // namespace hyperleveldb

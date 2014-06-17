@@ -27,7 +27,7 @@
 #include "util/mutexlock.h"
 #include "util/posix_logger.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 namespace {
 
@@ -628,7 +628,7 @@ class PosixEnv : public Env {
       *result = env;
     } else {
       char buf[100];
-      snprintf(buf, sizeof(buf), "/tmp/leveldbtest-%d", int(geteuid()));
+      snprintf(buf, sizeof(buf), "/tmp/hyperleveldbtest-%d", int(geteuid()));
       *result = buf;
     }
     // Directory may already exist
@@ -775,4 +775,4 @@ Env* Env::Default() {
   return default_env;
 }
 
-}  // namespace leveldb
+}  // namespace hyperleveldb

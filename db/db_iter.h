@@ -9,7 +9,7 @@
 #include "hyperleveldb/db.h"
 #include "db/dbformat.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 class DBImpl;
 
@@ -23,6 +23,6 @@ extern Iterator* NewDBIterator(
     SequenceNumber sequence,
     uint32_t seed);
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 #endif  // STORAGE_LEVELDB_DB_DB_ITER_H_

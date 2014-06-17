@@ -9,13 +9,13 @@
 #include "hyperleveldb/db.h"
 #include "util/testharness.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 class Issue200 { };
 
 TEST(Issue200, Test) {
   // Get rid of any state from an old run.
-  std::string dbpath = test::TmpDir() + "/leveldb_issue200_test";
+  std::string dbpath = test::TmpDir() + "/hyperleveldb_issue200_test";
   DestroyDB(dbpath, Options());
 
   DB *db;
@@ -52,8 +52,8 @@ TEST(Issue200, Test) {
   DestroyDB(dbpath, options);
 }
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return hyperleveldb::test::RunAllTests();
 }

@@ -10,7 +10,7 @@
 #ifndef STORAGE_LEVELDB_PORT_PORT_EXAMPLE_H_
 #define STORAGE_LEVELDB_PORT_PORT_EXAMPLE_H_
 
-namespace leveldb {
+namespace hyperleveldb {
 namespace port {
 
 // TODO(jorlow): Many of these belong more in the environment class rather than
@@ -62,7 +62,7 @@ class CondVar {
 
 // Thread-safe initialization.
 // Used as follows:
-//      static port::OnceType init_control = LEVELDB_ONCE_INIT;
+//      static port::OnceType init_control = HYPERLEVELDB_ONCE_INIT;
 //      static void Initializer() { ... do something ...; }
 //      ...
 //      port::InitOnce(&init_control, &Initializer);
@@ -130,6 +130,6 @@ extern bool Snappy_Uncompress(const char* input_data, size_t input_length,
 extern bool GetHeapProfile(void (*func)(void*, const char*, int), void* arg);
 
 }  // namespace port
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 #endif  // STORAGE_LEVELDB_PORT_PORT_EXAMPLE_H_

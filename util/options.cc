@@ -7,7 +7,7 @@
 #include "hyperleveldb/comparator.h"
 #include "hyperleveldb/env.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 Options::Options()
     : comparator(BytewiseComparator()),
@@ -27,4 +27,4 @@ Options::Options()
 }
 
 
-}  // namespace leveldb
+}  // namespace hyperleveldb

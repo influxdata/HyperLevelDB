@@ -10,7 +10,7 @@
 #include <stdint.h>
 #include "hyperleveldb/slice.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 struct Options;
 
@@ -52,6 +52,6 @@ class BlockBuilder {
   void operator=(const BlockBuilder&);
 };
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 #endif  // STORAGE_LEVELDB_TABLE_BLOCK_BUILDER_H_

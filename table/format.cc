@@ -10,7 +10,7 @@
 #include "util/coding.h"
 #include "util/crc32c.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 void BlockHandle::EncodeTo(std::string* dst) const {
   // Sanity check that all fields have been set
@@ -142,4 +142,4 @@ Status ReadBlock(RandomAccessFile* file,
   return Status::OK();
 }
 
-}  // namespace leveldb
+}  // namespace hyperleveldb

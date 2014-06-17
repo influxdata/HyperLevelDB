@@ -9,7 +9,7 @@
 #include <stdint.h>
 #include "hyperleveldb/iterator.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 struct BlockContents;
 class Comparator;
@@ -39,6 +39,6 @@ class Block {
   class Iter;
 };
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 #endif  // STORAGE_LEVELDB_TABLE_BLOCK_H_

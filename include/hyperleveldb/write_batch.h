@@ -24,7 +24,7 @@
 #include <string>
 #include "hyperleveldb/status.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 class Slice;
 
@@ -59,6 +59,6 @@ class WriteBatch {
   // Intentionally copyable
 };
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 #endif  // STORAGE_LEVELDB_INCLUDE_WRITE_BATCH_H_

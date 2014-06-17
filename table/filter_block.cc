@@ -7,7 +7,7 @@
 #include "hyperleveldb/filter_policy.h"
 #include "util/coding.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 // See doc/table_format.txt for an explanation of the filter block format.
 

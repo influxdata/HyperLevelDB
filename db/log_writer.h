@@ -11,7 +11,7 @@
 #include "hyperleveldb/status.h"
 #include "port/port.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 class WritableFile;
 
@@ -45,6 +45,6 @@ class Writer {
 };
 
 }  // namespace log
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 #endif  // STORAGE_LEVELDB_DB_LOG_WRITER_H_

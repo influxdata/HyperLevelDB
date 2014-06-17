@@ -16,7 +16,7 @@
 #include "hyperleveldb/write_batch.h"
 #include "util/logging.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 namespace {
 
@@ -209,18 +209,18 @@ bool HandleDumpCommand(Env* env, char** files, int num) {
 }
 
 }
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 static void Usage() {
   fprintf(
       stderr,
-      "Usage: leveldbutil command...\n"
+      "Usage: hyperleveldbutil command...\n"
       "   dump files...         -- dump contents of specified files\n"
       );
 }
 
 int main(int argc, char** argv) {
-  leveldb::Env* env = leveldb::Env::Default();
+  hyperleveldb::Env* env = hyperleveldb::Env::Default();
   bool ok = true;
   if (argc < 2) {
     Usage();
@@ -228,7 +228,7 @@ int main(int argc, char** argv) {
   } else {
     std::string command = argv[1];
     if (command == "dump") {
-      ok = leveldb::HandleDumpCommand(env, argv+2, argc-2);
+      ok = hyperleveldb::HandleDumpCommand(env, argv+2, argc-2);
     } else {
       Usage();
       ok = false;

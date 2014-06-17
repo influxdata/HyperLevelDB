@@ -11,7 +11,7 @@
 #include "hyperleveldb/env.h"
 #include "hyperleveldb/slice.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 void AppendNumberTo(std::string* str, uint64_t num) {
   char buf[30];
@@ -78,4 +78,4 @@ bool ConsumeDecimalNumber(Slice* in, uint64_t* val) {
   return (digits > 0);
 }
 
-}  // namespace leveldb
+}  // namespace hyperleveldb

@@ -21,7 +21,7 @@
 #include <stdint.h>
 #include "hyperleveldb/slice.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 class Cache;
 
@@ -94,6 +94,6 @@ class Cache {
   void operator=(const Cache&);
 };
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 #endif  // STORAGE_LEVELDB_UTIL_CACHE_H_

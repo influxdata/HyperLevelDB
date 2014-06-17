@@ -9,7 +9,7 @@
 #include "util/testharness.h"
 #include "util/testutil.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 static const int kVerbose = 1;
 
@@ -154,8 +154,8 @@ TEST(BloomTest, VaryingLengths) {
 
 // Different bits-per-byte
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return hyperleveldb::test::RunAllTests();
 }

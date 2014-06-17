@@ -12,7 +12,7 @@
 #include "db/dbformat.h"
 #include "db/memtable.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 class DBImpl;
 struct ReplayState {
@@ -68,6 +68,6 @@ class ReplayIteratorImpl : public ReplayIterator {
   std::list<ReplayState> mems_;
 };
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 #endif  // STORAGE_LEVELDB_DB_ROLLING_ITERATOR_H_

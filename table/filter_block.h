@@ -16,7 +16,7 @@
 #include "hyperleveldb/slice.h"
 #include "util/hash.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 class FilterPolicy;
 

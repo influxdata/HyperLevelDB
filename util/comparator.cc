@@ -10,7 +10,7 @@
 #include "util/coding.h"
 #include "util/logging.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 Comparator::~Comparator() { }
 
@@ -24,7 +24,7 @@ class BytewiseComparatorImpl : public Comparator {
   BytewiseComparatorImpl() { }
 
   virtual const char* Name() const {
-    return "leveldb.BytewiseComparator";
+    return "hyperleveldb.BytewiseComparator";
   }
 
   virtual int Compare(const Slice& a, const Slice& b) const {
@@ -99,4 +99,4 @@ const Comparator* BytewiseComparator() {
   return bytewise;
 }
 
-}  // namespace leveldb
+}  // namespace hyperleveldb

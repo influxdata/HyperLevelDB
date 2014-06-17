@@ -7,7 +7,7 @@
 
 #include <stddef.h>
 
-namespace leveldb {
+namespace hyperleveldb {
 
 class Cache;
 class Comparator;
@@ -93,7 +93,7 @@ struct Options {
   // a block is the unit of reading from disk).
 
   // If non-NULL, use the specified cache for blocks.
-  // If NULL, leveldb will automatically create and use an 8MB internal cache.
+  // If NULL, hyperleveldb will automatically create and use an 8MB internal cache.
   // Default: NULL
   Cache* block_cache;
 
@@ -201,6 +201,6 @@ struct WriteOptions {
   }
 };
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 #endif  // STORAGE_LEVELDB_INCLUDE_OPTIONS_H_

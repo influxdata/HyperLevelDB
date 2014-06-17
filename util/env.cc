@@ -4,7 +4,7 @@
 
 #include "hyperleveldb/env.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 Env::~Env() {
 }
@@ -93,4 +93,4 @@ Status ReadFileToString(Env* env, const std::string& fname, std::string* data) {
 EnvWrapper::~EnvWrapper() {
 }
 
-}  // namespace leveldb
+}  // namespace hyperleveldb

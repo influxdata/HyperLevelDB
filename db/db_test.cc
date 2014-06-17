@@ -17,7 +17,7 @@
 #include "util/testharness.h"
 #include "util/testutil.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 static std::string RandomString(Random* rnd, int len) {
   std::string r;
@@ -391,7 +391,7 @@ class DBTest {
   int NumTableFilesAtLevel(int level) {
     std::string property;
     ASSERT_TRUE(
-        db_->GetProperty("leveldb.num-files-at-level" + NumberToString(level),
+        db_->GetProperty("hyperleveldb.num-files-at-level" + NumberToString(level),
                          &property));
     return atoi(property.c_str());
   }
@@ -469,7 +469,7 @@ class DBTest {
 
   std::string DumpSSTableList() {
     std::string property;
-    db_->GetProperty("leveldb.sstables", &property);
+    db_->GetProperty("hyperleveldb.sstables", &property);
     return property;
   }
 
@@ -1382,7 +1382,7 @@ TEST(DBTest, L0_CompactionBug_Issue44_b) {
 TEST(DBTest, ComparatorCheck) {
   class NewComparator : public Comparator {
    public:
-    virtual const char* Name() const { return "leveldb.NewComparator"; }
+    virtual const char* Name() const { return "hyperleveldb.NewComparator"; }
     virtual int Compare(const Slice& a, const Slice& b) const {
       return BytewiseComparator()->Compare(a, b);
     }
@@ -2161,7 +2161,7 @@ std::string MakeKey(unsigned int num) {
 }
 
 void BM_LogAndApply(int iters, int num_base_files) {
-  std::string dbname = test::TmpDir() + "/leveldb_test_benchmark";
+  std::string dbname = test::TmpDir() + "/hyperleveldb_test_benchmark";
   DestroyDB(dbname, Options());
 
   DB* db = NULL;
@@ -2213,16 +2213,16 @@ void BM_LogAndApply(int iters, int num_base_files) {
           buf, iters, us, ((float)us) / iters);
 }
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 int main(int argc, char** argv) {
   if (argc > 1 && std::string(argv[1]) == "--benchmark") {
-    leveldb::BM_LogAndApply(1000, 1);
-    leveldb::BM_LogAndApply(1000, 100);
-    leveldb::BM_LogAndApply(1000, 10000);
-    leveldb::BM_LogAndApply(100, 100000);
+    hyperleveldb::BM_LogAndApply(1000, 1);
+    hyperleveldb::BM_LogAndApply(1000, 100);
+    hyperleveldb::BM_LogAndApply(1000, 10000);
+    hyperleveldb::BM_LogAndApply(100, 100000);
     return 0;
   }
 
-  return leveldb::test::RunAllTests();
+  return hyperleveldb::test::RunAllTests();
 }

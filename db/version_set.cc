@@ -19,10 +19,10 @@
 #include "util/coding.h"
 #include "util/logging.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 static double MaxBytesForLevel(int level) {
-  assert(level < leveldb::config::kNumLevels);
+  assert(level < hyperleveldb::config::kNumLevels);
   static const double bytes[] = {10 * 1048576.0,
                                  100 * 1048576.0,
                                  100 * 1048576.0,
@@ -34,7 +34,7 @@ static double MaxBytesForLevel(int level) {
 }
 
 static uint64_t MaxFileSizeForLevel(int level) {
-  assert(level < leveldb::config::kNumLevels);
+  assert(level < hyperleveldb::config::kNumLevels);
   static const uint64_t bytes[] = {8 * 1048576,
                                    8 * 1048576,
                                    8 * 1048576,
@@ -46,7 +46,7 @@ static uint64_t MaxFileSizeForLevel(int level) {
 }
 
 static uint64_t MaxCompactionBytesForLevel(int level) {
-  assert(level < leveldb::config::kNumLevels);
+  assert(level < hyperleveldb::config::kNumLevels);
   static const uint64_t bytes[] = {128 * 1048576,
                                    128 * 1048576,
                                    128 * 1048576,
@@ -1581,4 +1581,4 @@ void Compaction::ReleaseInputs() {
   }
 }
 
-}  // namespace leveldb
+}  // namespace hyperleveldb

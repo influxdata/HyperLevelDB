@@ -14,7 +14,7 @@
 #include "util/mutexlock.h"
 #include "util/random.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 ReplayIterator::ReplayIterator() {
 }
@@ -217,4 +217,4 @@ void ReplayIteratorImpl::Prime() {
   }
 }
 
-}  // namespace leveldb
+}  // namespace hyperleveldb

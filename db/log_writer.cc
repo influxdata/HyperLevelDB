@@ -10,7 +10,7 @@
 #include "util/crc32c.h"
 #include "util/mutexlock.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 namespace log {
 
 Writer::Writer(WritableFile* dest)
@@ -129,4 +129,4 @@ Status Writer::EmitPhysicalRecordAt(RecordType t, const char* ptr, uint64_t offs
 }
 
 }  // namespace log
-}  // namespace leveldb
+}  // namespace hyperleveldb

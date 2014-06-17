@@ -8,7 +8,7 @@
 #include <stdint.h>
 #include "hyperleveldb/iterator.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 class Block;
 class BlockHandle;
@@ -80,6 +80,6 @@ class Table {
   void operator=(const Table&);
 };
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 #endif  // STORAGE_LEVELDB_INCLUDE_TABLE_H_

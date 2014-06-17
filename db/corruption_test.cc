@@ -20,7 +20,7 @@
 #include "util/testharness.h"
 #include "util/testutil.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 static const int kValueSize = 1000;
 
@@ -64,7 +64,7 @@ class CorruptionTest {
   void RepairDB() {
     delete db_;
     db_ = NULL;
-    ASSERT_OK(::leveldb::RepairDB(dbname_, options_));
+    ASSERT_OK(::hyperleveldb::RepairDB(dbname_, options_));
   }
 
   void Build(int n) {
@@ -320,7 +320,7 @@ TEST(CorruptionTest, CompactionInputError) {
   DBImpl* dbi = reinterpret_cast<DBImpl*>(db_);
   dbi->TEST_CompactMemTable();
   const int last = config::kMaxMemCompactLevel;
-  ASSERT_EQ(1, Property("leveldb.num-files-at-level" + NumberToString(last)));
+  ASSERT_EQ(1, Property("hyperleveldb.num-files-at-level" + NumberToString(last)));
 
   Corrupt(kTableFile, 100, 1);
   Check(5, 9);
@@ -367,8 +367,8 @@ TEST(CorruptionTest, UnrelatedKeys) {
   ASSERT_EQ(Value(1000, &tmp2).ToString(), v);
 }
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 int main(int argc, char** argv) {
-  return leveldb::test::RunAllTests();
+  return hyperleveldb::test::RunAllTests();
 }

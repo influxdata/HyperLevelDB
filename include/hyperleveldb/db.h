@@ -11,7 +11,7 @@
 #include "hyperleveldb/options.h"
 #include "hyperleveldb/replay_iterator.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 // Update Makefile if you change these
 static const int kMajorVersion = 1;
@@ -110,11 +110,11 @@ class DB {
   //
   // Valid property names include:
   //
-  //  "leveldb.num-files-at-level<N>" - return the number of files at level <N>,
+  //  "hyperleveldb.num-files-at-level<N>" - return the number of files at level <N>,
   //     where <N> is an ASCII representation of a level number (e.g. "0").
-  //  "leveldb.stats" - returns a multi-line string that describes statistics
+  //  "hyperleveldb.stats" - returns a multi-line string that describes statistics
   //     about the internal operation of the DB.
-  //  "leveldb.sstables" - returns a multi-line string that describes all
+  //  "hyperleveldb.sstables" - returns a multi-line string that describes all
   //     of the sstables that make up the db contents.
   virtual bool GetProperty(const Slice& property, std::string* value) = 0;
 
@@ -187,6 +187,6 @@ Status DestroyDB(const std::string& name, const Options& options);
 // on a database that contains important information.
 Status RepairDB(const std::string& dbname, const Options& options);
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 #endif  // STORAGE_LEVELDB_INCLUDE_DB_H_

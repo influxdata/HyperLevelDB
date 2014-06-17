@@ -8,7 +8,7 @@
 #include "hyperleveldb/slice.h"
 #include "hyperleveldb/status.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 class ReplayIterator {
  public:
@@ -60,6 +60,6 @@ class ReplayIterator {
   void operator=(const ReplayIterator&);
 };
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 #endif  // STORAGE_LEVELDB_INCLUDE_REPLAY_ITERATOR_H_

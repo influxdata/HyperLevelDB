@@ -7,7 +7,7 @@
 
 #include "hyperleveldb/write_batch.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 class MemTable;
 
@@ -43,7 +43,7 @@ class WriteBatchInternal {
   static void Append(WriteBatch* dst, const WriteBatch* src);
 };
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 
 #endif  // STORAGE_LEVELDB_DB_WRITE_BATCH_INTERNAL_H_

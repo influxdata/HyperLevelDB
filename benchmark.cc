@@ -50,7 +50,7 @@ static const char* _output = "benchmark.dat";
 static const char* _dir = ".";
 
 static void
-worker_thread(leveldb::DB*, ygor_data_logger* dl,
+worker_thread(hyperleveldb::DB*, ygor_data_logger* dl,
               const armnod_config* k,
               const armnod_config* v);
 
@@ -75,7 +75,7 @@ main(int argc, const char* argv[])
             .description("output file for benchmark results (default: benchmark.dat)")
             .as_string(&_output);
     ap.arg().name('d', "db-dir")
-            .description("directory for leveldb storage (default: .)")
+            .description("directory for hyperleveldb storage (default: .)")
             .as_string(&_dir);
     const std::auto_ptr<armnod_argparser> key_parser(armnod_argparser::create("key-"));
     const std::auto_ptr<armnod_argparser> value_parser(armnod_argparser::create("value-"));
@@ -88,12 +88,12 @@ main(int argc, const char* argv[])
     }
 
     // open the LevelDB
-    leveldb::Options opts;
+    hyperleveldb::Options opts;
     opts.create_if_missing = true;
     opts.write_buffer_size = _write_buf;
-    opts.filter_policy = leveldb::NewBloomFilterPolicy(10);
-    leveldb::DB* db;
-    leveldb::Status st = leveldb::DB::Open(opts, _dir, &db);
+    opts.filter_policy = hyperleveldb::NewBloomFilterPolicy(10);
+    hyperleveldb::DB* db;
+    hyperleveldb::Status st = hyperleveldb::DB::Open(opts, _dir, &db);
 
     if (!st.ok())
     {
@@ -137,13 +137,13 @@ main(int argc, const char* argv[])
 
     // dump stats of the DB
     std::string tmp;
-    if (db->GetProperty("leveldb.stats", &tmp)) std::cout << tmp << std::endl;
+    if (db->GetProperty("hyperleveldb.stats", &tmp)) std::cout << tmp << std::endl;
     delete db;
     return EXIT_SUCCESS;
 }
 
 void
-worker_thread(leveldb::DB* db,
+worker_thread(hyperleveldb::DB* db,
               ygor_data_logger* dl,
               const armnod_config* _k,
               const armnod_config* _v)
@@ -162,21 +162,21 @@ worker_thread(leveldb::DB* db,
 
         // issue a "get"
         std::string tmp;
-        leveldb::ReadOptions ropts;
+        hyperleveldb::ReadOptions ropts;
         ygor_data_record dr;
         dr.flags = 1;
         ygor_data_logger_start(dl, &dr);
-        leveldb::Status rst = db->Get(ropts, leveldb::Slice(k, k_sz), &tmp);
+        hyperleveldb::Status rst = db->Get(ropts, hyperleveldb::Slice(k, k_sz), &tmp);
         ygor_data_logger_finish(dl, &dr);
         ygor_data_logger_record(dl, &dr);
         assert(rst.ok() || rst.IsNotFound());
 
         // issue a "put"
-        leveldb::WriteOptions wopts;
+        hyperleveldb::WriteOptions wopts;
         wopts.sync = false;
         dr.flags = 2;
         ygor_data_logger_start(dl, &dr);
-        leveldb::Status wst = db->Put(wopts, leveldb::Slice(k, k_sz), leveldb::Slice(v, v_sz));
+        hyperleveldb::Status wst = db->Put(wopts, hyperleveldb::Slice(k, k_sz), hyperleveldb::Slice(v, v_sz));
         ygor_data_logger_finish(dl, &dr);
         ygor_data_logger_record(dl, &dr);
         assert(wst.ok());

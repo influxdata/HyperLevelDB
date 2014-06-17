@@ -16,7 +16,7 @@
 #include "hyperleveldb/write_batch.h"
 #include "util/logging.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 namespace {
 
@@ -195,11 +195,11 @@ bool HandleDumpCommand(Env* env, char** files, int num) {
 }
 
 }
-}  // namespace leveldb
+}  // namespace hyperleveldb
 
 int main(int argc, char** argv) {
-  leveldb::Env* env = leveldb::Env::Default();
+  hyperleveldb::Env* env = hyperleveldb::Env::Default();
   bool ok = true;
-  ok = leveldb::HandleDumpCommand(env, argv+1, argc-1);
+  ok = hyperleveldb::HandleDumpCommand(env, argv+1, argc-1);
   return (ok ? 0 : 1);
 }

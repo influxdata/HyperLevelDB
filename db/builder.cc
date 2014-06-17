@@ -12,7 +12,7 @@
 #include "hyperleveldb/env.h"
 #include "hyperleveldb/iterator.h"
 
-namespace leveldb {
+namespace hyperleveldb {
 
 Status BuildTable(const std::string& dbname,
                   Env* env,
@@ -85,4 +85,4 @@ Status BuildTable(const std::string& dbname,
   return s;
 }
 
-}  // namespace leveldb
+}  // namespace hyperleveldb
